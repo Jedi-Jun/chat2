@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import theme from './theme';
+import { BrowserRouter } from 'react-router-dom';
 
 /* const rootNode = document.getElementById('root');
 ReactDOM.createRoot(rootNode).render(<App />); */
@@ -12,7 +13,7 @@ ReactDOM.createRoot(rootNode).render(<App />); */
 const root = createRoot(document.getElementById('root'));
 
 root.render(
-  <>
+  <BrowserRouter>
     {/* {localStorage.setItem('chakra-ui-color-mode', 'dark')} */}
     {/* {!localStorage.getItem('chakra-ui-color-mode') &&
       localStorage.setItem('chakra-ui-color-mode', 'dark')} */}
@@ -20,5 +21,5 @@ root.render(
       {/* <ColorModeScript initialColorMode={'dark'} /> */}
       <App />
     </ChakraProvider>
-  </>
+  </BrowserRouter>
 );

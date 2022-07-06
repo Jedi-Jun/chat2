@@ -17,7 +17,10 @@ module.exports = {
         test: /\.(ts|js)x?$/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env', '@babel/preset-react'],
+          presets: [
+            '@babel/preset-env',
+            ['@babel/preset-react', { runtime: 'automatic' }], // @
+          ],
           plugins: ['react-refresh/babel'],
         },
         exclude: /node_modules/,
@@ -28,6 +31,9 @@ module.exports = {
       }, */
     ],
   },
+  /* externals: {
+    react: 'React', // @
+  }, */
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './public/index.html'),
@@ -38,8 +44,9 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, './src'),
     },
-    compress: true,
     hot: 'only',
+    historyApiFallback: true,
+    compress: true,
     open: false,
   },
 };
