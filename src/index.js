@@ -1,6 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
+import theme from './theme';
 
 /* const rootNode = document.getElementById('root');
 ReactDOM.createRoot(rootNode).render(<App />); */
@@ -9,4 +11,14 @@ ReactDOM.createRoot(rootNode).render(<App />); */
 
 const root = createRoot(document.getElementById('root'));
 
-root.render(<App />);
+root.render(
+  <>
+    {/* {localStorage.setItem('chakra-ui-color-mode', 'dark')} */}
+    {/* {!localStorage.getItem('chakra-ui-color-mode') &&
+      localStorage.setItem('chakra-ui-color-mode', 'dark')} */}
+    <ChakraProvider theme={theme}>
+      {/* <ColorModeScript initialColorMode={'dark'} /> */}
+      <App />
+    </ChakraProvider>
+  </>
+);

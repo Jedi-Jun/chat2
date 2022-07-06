@@ -1,7 +1,8 @@
 import React from 'react';
+import ToggleColorMode from './components/ToggleColorMode';
 
 function App() {
-  return <div>Ready to dive</div>;
+  return <ToggleColorMode />;
 }
 
 export default App;
